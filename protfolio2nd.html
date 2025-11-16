@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Foysal Hossain Omi - Digital Marketer & SEO Specialist</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            position: relative;
+            background-color: #f8f9fa;
+        }
+
+        /* --- Navigation --- */
+        .navbar {
+            transition: all 0.3s ease;
+        }
+        .navbar.navbar-shrink {
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: #0d6efd;
+        }
+
+        /* --- Hero Section (Updated) --- */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./images/Meet Foysal Hossain Omi.png');
+            background-size: cover;
+            background-position: center;
+            min-height: 95vh;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* ★★★ নতুন CSS ক্লাস ★★★ */
+        .hero-subtext {
+            font-size: 1.5rem; /* লেখাকে কিছুটা বড় করবে */
+            font-weight: 300; /* লেখাকে কিছুটা হালকা (light) করবে */
+            color: rgba(255, 255, 255, 0.9); /* পুরোপুরি সাদা না, একটু অফ-হোয়াইট */
+            margin: 0 auto 3rem auto;
+            max-width: 800px; /* লেখা যেন খুব বেশি ছড়িয়ে না যায় */
+        }
+        /* ★★★ শেষ ★★★ */
+
+
+        /* --- Section Styling --- */
+        section {
+            padding: 100px 0;
+        }
+        .section-title {
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        /* --- Service Cards --- */
+        .service-card {
+            background-color: #ffffff;
+            border: 0;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+            padding: 30px;
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        .service-card .icon {
+            font-size: 3rem;
+            color: #0d6efd;
+            margin-bottom: 20px;
+        }
+
+        /* --- Portfolio Cards --- */
+        .portfolio-card {
+            background-color: #ffffff;
+            border: 0;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+            overflow: hidden;
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        .portfolio-card img {
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+        }
+
+        /* --- Case Study Section --- */
+        .case-study-section {
+            background-color: #343a40;
+            color: #ffffff;
+        }
+        .result-list li {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        .result-list .bi {
+            color: #198754; /* Green checkmark */
+            margin-right: 10px;
+        }
+
+        /* --- Testimonial Cards --- */
+        .testimonial-card {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+            font-style: italic;
+        }
+        .testimonial-card p {
+            font-size: 1.1rem;
+            margin-bottom: 0;
+        }
+
+        /* --- Contact Section --- */
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        .contact-info-item .bi {
+            font-size: 1.5rem;
+            color: #0d6efd;
+            width: 40px;
+            margin-right: 15px;
+        }
+        .contact-info-item a {
+            text-decoration: none;
+            color: #212529;
+        }
+        .contact-info-item a:hover {
+            color: #0d6efd;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: #212529;
+            color: #adb5bd;
+            padding: 40px 0;
+        }
+        .footer-social-links a {
+            color: #adb5bd;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .footer-social-links a:hover {
+            color: #ffffff;
+        }
+
+        /* --- Animation --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav">
+
+    <nav id="mainNav" class="navbar navbar-expand-lg navbar-light bg-light fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Foysal Omi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Feedback</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    
+                    <h1 class="display-3 fw-bold mb-4 fade-in">I’m Md Foysal Hossain Omi</h1>
+                    
+                    <p class="lead hero-subtext mb-5 fade-in" style="animation-delay: 300ms;">
+                        A Digital Marketer and SEO Specialist helping brands increase visibility, traffic, and sales through proven organic strategies.
+                    </p>
+                    
+                    <div class="d-grid gap-3 d-md-flex justify-content-md-center fade-in" style="animation-delay: 600ms;">
+                        <a href="#contact" class="btn btn-primary btn-lg mx-md-2 px-4 py-3 d-flex align-items-center justify-content-center">
+                            <i class="bi bi-bar-chart-fill me-2"></i> Get a Free SEO Audit
+                        </a>
+                        <a href="#portfolio" class="btn btn-outline-light btn-lg mx-md-2 px-4 py-3 d-flex align-items-center justify-content-center">
+                            <i class="bi bi-eye-fill me-2"></i> View My Work
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="about">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5 fade-in">
+                    <img src="https://placehold.co/600x600/0d6efd/FFF?text=Foysal+Omi" class="img-fluid rounded-circle shadow-lg" alt="Md Foysal Hossain Omi">
+                </div>
+                <div class="col-lg-7 fade-in" style="transition-delay: 100ms;">
+                    <h2 class="section-title text-start mb-4">About Me</h2>
+                    <p class="lead mb-4">I’m a Digital Marketer and SEO Specialist with hands-on experience working with clients across the **UK, Sweden, and Australia**. For years, I’ve helped businesses grow through strategic SEO, content optimization, and smart digital marketing practices.</p>
+                    <p class="mb-4">I currently work as a Digital Marketer and SEO Specialist for a Swedish company, and I manage several ongoing SEO projects for UK-based clients. My focus is always on **long-term growth, strong organic traffic, and measurable results**.</p>
+                    <p>I believe in clean strategy, transparent communication, and data-driven marketing that delivers real business impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="bg-white">
+        <div class="container">
+            <h2 class="section-title">My Services</h2>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 fade-in">
+                    <div class="service-card text-center">
+                        <div class="icon"><i class="bi bi-graph-up-arrow"></i></div>
+                        <h5 class="fw-bold">Search Engine Optimization (SEO)</h5>
+                        <p>I provide complete SEO solutions including keyword research, on-page optimization, technical SEO, content strategy, and monthly growth tracking.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 fade-in" style="transition-delay: 100ms;">
+                    <div class="service-card text-center">
+                        <div class="icon"><i class="bi bi-megaphone"></i></div>
+                        <h5 class="fw-bold">Digital Marketing</h5>
+                        <p>I create smart campaigns that help businesses build brand awareness, reach the right audience, and generate high-quality leads across multiple platforms.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 fade-in" style="transition-delay: 200ms;">
+                    <div class="service-card text-center">
+                        <div class="icon"><i class="bi bi-pencil-square"></i></div>
+                        <h5 class="fw-bold">Content Writing</h5>
+                        <p>I write SEO-friendly, clear, and engaging content for blogs, websites, and landing pages that rank well and convert visitors into customers.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 fade-in" style="transition-delay: 300ms;">
+                    <div class="service-card text-center">
+                        <div class="icon"><i class="bi bi-window-sidebar"></i></div>
+                        <h5 class="fw-bold">Web Design & Strategy</h5>
+                        <p>I help businesses plan user-friendly websites that support SEO, drive engagement, and stay aligned with their business goals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Selected Projects</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4 fade-in">
+                    <div class="portfolio-card">
+                        <img src="https://placehold.co/600x400/FFC107/FFF?text=Sunrise+Aesthetic" alt="Sunrise Aesthetic Project">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold">Project 1 – Australia</h5>
+                            <p class="text-muted">Website: sunriseaesthetic.com.au</p>
+                            <p>Worked on full SEO and content optimization. Improved visibility for high-competition local keywords and strengthened the site’s organic performance.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 fade-in" style="transition-delay: 100ms;">
+                    <div class="portfolio-card">
+                        <img src="https://placehold.co/600x400/0D6EFD/FFF?text=Urban+Outdoors" alt="Urban Outdoors Project">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold">Project 2 – United Kingdom</h5>
+                            <p class="text-muted">Website: urban-outdoors.co.uk</p>
+                            <p>Handled ongoing SEO strategies, product keyword optimization, and performance improvement for an e-commerce niche.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 fade-in" style="transition-delay: 200ms;">
+                    <div class="portfolio-card">
+                        <img src="https://placehold.co/600x400/198754/FFF?text=Dakmatter" alt="Dakmatter Project">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold">Project 3 – Sweden</h5>
+                            <p class="text-muted">Website: dakmatter.com</p>
+                            <p>Focused on local SEO, competitor analysis, and ranking improvement for service-based keywords in the Swedish market.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-10 fade-in" style="transition-delay: 300ms;">
+                    <div class="alert alert-info text-center p-4" role="alert">
+                        <h5 class="alert-heading">Additional Work</h5>
+                        <p class="mb-0">I also manage multiple long-term SEO projects outside of marketplaces and continue to support international brands with organic growth strategies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="case-studies" class="case-study-section">
+        <div class="container">
+            <h2 class="section-title text-white">Case Studies & Results</h2>
+            <div class="row justify-content-center align-items-center g-5 fade-in">
+                <div class="col-lg-5">
+                    <h4 class="fw-bold">Example Case Study:</h4>
+                    <h5 class="text-white-50 mb-3">Niche: Local Service Business</h5>
+                    <p>I'll be adding more detailed case studies soon based on ongoing client results.</p>
+                </div>
+                <div class="col-lg-5">
+                    <h4 class="fw-bold mb-3">Results in 3 Months:</h4>
+                    <ul class="list-unstyled result-list">
+                        <li><i class="bi bi-check-lg"></i> <strong>3× increase</strong> in clicks</li>
+                        <li><i class="bi bi-check-lg"></i> <strong>6× increase</strong> in impressions</li>
+                        <li><i class="bi bi-check-lg"></i> Improved ranking for primary service keywords</li>
+                        <li><i class="bi bi-check-lg"></i> Higher engagement and conversions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Client Feedback</h2>
+            <div class="row g-4">
+                <div class="col-md-6 fade-in">
+                    <div class="testimonial-card">
+                        <p>"Omi helped us fix our SEO structure and we saw results faster than expected. Great communication and very professional."</p>
+                    </div>
+                </div>
+                <div class="col-md-6 fade-in" style="transition-delay: 100ms;">
+                    <div class="testimonial-card">
+                        <p>"Clear strategy, excellent reporting, and real improvement in our organic traffic. Highly recommended."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-white">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Let’s Work Together</h2>
+                <p class="lead mb-5 col-lg-8 mx-auto">If you’re looking for a reliable SEO Specialist or Digital Marketer to grow your business, feel free to reach out. I’m available for long-term projects, consultations, and full-service SEO support.</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-6 fade-in">
+                    <div class="contact-info-item">
+                        <i class="bi bi-envelope-fill"></i>
+                        <a href="mailto:your-email@gmail.com">your-email@gmail.com</a>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="bi bi-phone-fill"></i>
+                        <a href="tel:+8801518979359">+8801518979359</a>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="bi bi-linkedin"></i>
+                        <a href="#" target="_blank">Your LinkedIn Profile Link</a>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="bi bi-person-badge-fill"></i>
+                        <a href="#" target="_blank">Your PeoplePerHour Profile Link</a>
+                    </div>
+
+                    <div class="text-center mt-5">
+                        <a href="mailto:your-email@gmail.com" class="btn btn-primary btn-lg px-5 py-3">Get in Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="footer-social-links mb-3">
+                <a href="#" target="_blank"><i class="bi bi-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="bi bi-person-badge-fill"></i></a>
+                <a href="mailto:your-email@gmail.com"><i class="bi bi-envelope-fill"></i></a>
+            </div>
+            <p class="mb-0">Copyright &copy; 2025 Md Foysal Hossain Omi. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            // --- Navbar Shrink ---
+            const mainNav = document.body.querySelector('#mainNav');
+            if (mainNav) {
+                const onScroll = () => {
+                    if (window.scrollY > 50) {
+                        mainNav.classList.add('navbar-shrink');
+                        mainNav.classList.remove('bg-light');
+                        mainNav.classList.add('bg-white');
+                    } else {
+                        mainNav.classList.remove('navbar-shrink');
+                        mainNav.classList.remove('bg-white');
+                        mainNav.classList.add('bg-light');
+                    }
+                };
+                window.addEventListener('scroll', onScroll);
+                onScroll(); // Run on page load
+            }
+
+            // --- Fade-in Animation on Scroll ---
+            const fadeElems = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Optional: Unobserve after it's visible so it doesn't re-animate
+                        // observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            });
+
+            // --- Special observer for Hero Section to animate immediately ---
+            const heroFadeElems = document.querySelectorAll('#home .fade-in');
+            heroFadeElems.forEach(elem => {
+                // Check if it's in the viewport on load
+                const rect = elem.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                    elem.classList.add('is-visible');
+                } else {
+                    observer.observe(elem); // Only observe if not visible on load
+                }
+            });
+
+            // Observe all other fade-in elements
+            fadeElems.forEach(elem => {
+                // Check if it's NOT in the hero section before observing
+                if (!elem.closest('#home')) {
+                    observer.observe(elem);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

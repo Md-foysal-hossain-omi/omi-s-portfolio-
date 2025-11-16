@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Moving Robot (V2)</title>
+    
+    <style>
+        /* --- CSS Styling --- */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #eef1f5; /* ছবির ব্যাকগ্রাউন্ডের মতো হালকা রঙ */
+            font-family: sans-serif;
+            overflow: hidden; /* স্ক্রলবার হাইড করার জন্য */
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* রোবটের SVG কন্টেইনার */
+        #robot-svg {
+            width: 300px; /* আপনার পছন্দ মতো আকার দিন */
+            max-width: 90vw;
+        }
+
+        /* রোবটের বিভিন্ন অংশের রঙ */
+        .robot-white { fill: #ffffff; }
+        .robot-blue { fill: #0056b3; } /* ছবির গাঢ় নীল রঙ */
+        .robot-grey { fill: #b0bec5; } /* সিলভার/ধূসর রঙ */
+        .robot-eye { fill: #000000; }
+        .antenna-tip { 
+            fill: #00bfff; /* উজ্জ্বল নীল */
+            /* ফিল্টার দিয়ে світіং এফেক্ট */
+            filter: drop-shadow(0 0 5px #00bfff) drop-shadow(0 0 10px #00bfff);
+        }
+        .robot-mouth {
+            fill: none;
+            stroke: #455a64;
+            stroke-width: 2;
+        }
+
+        /* রোবটের মাথার গ্রুপ, এটি 3D টিল্ট হবে */
+        #robot-head-group {
+            transition: transform 0.3s ease-out; /* মাথা ঘোরার জন্য ট্রানজিশন */
+        }
+        
+        /* চোখের মণি নড়াচড়ার জন্য কোনো ট্রানজিশন নেই, এটি তাৎক্ষণিক হবে */
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>নতুন মুভিং রোবট (V2) 🤖</h1>
+        
+        <svg id="robot-svg" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+            
+            <rect class="robot-white" x="30" y="180" width="50" height="40" rx="20"/>
+            <rect class="robot-white" x="120" y="180" width="50" height="40" rx="20"/>
+            
+            <rect class="robot-grey" x="75" y="150" width="50" height="15" /> <rect class="robot-white" x="65" y="100" width="70" height="60" rx="15"/>
+            <path class="robot-blue" d="M 75 105 H 125 V 140 A 10 10 0 0 1 115 150 H 85 A 10 10 0 0 1 75 140 V 105 Z" />
+            
+            <rect class="robot-grey" x="50" y="105" width="15" height="10" rx="5"/>
+            <rect class="robot-white" x="45" y="115" width="25" height="30" rx="10"/>
+            <rect class="robot-grey" x="135" y="105" width="15" height="10" rx="5"/>
+            <rect class="robot-white" x="130" y="115" width="25" height="30" rx="10"/>
+
+            <g id="robot-head-group">
+                <rect class="robot-grey" x="20" y="55" width="20" height="20" rx="10"/>
+                <rect class="robot-grey" x="160" y="55" width="20" height="20" rx="10"/>
+                
+                <path class="robot-white" d="M 30 70 A 70 70 0 0 1 170 70 V 90 A 70 70 0 0 1 30 90 V 70 Z" />
+                <ellipse class="robot-white" cx="100" cy="70" rx="70" ry="70" />
+                
+                <path class="robot-blue" d="M 80 0 H 120 V 30 A 20 20 0 0 1 100 50 A 20 20 0 0 1 80 30 V 0 Z" />
+
+                <line x1="80" y1="20" x2="70" y2="0" stroke="#b0bec5" stroke-width="3"/>
+                <circle class="antenna-tip" cx="70" cy="0" r="4"/>
+                <line x1="120" y1="20" x2="130" y2="0" stroke="#b0bec5" stroke-width="3"/>
+                <circle class="antenna-tip" cx="130" cy="0" r="4"/>
+
+                <circle class="robot-eye" cx="75" cy="70" r="25"/>
+                <circle id="left-eye-pupil" class="robot-white" cx="75" cy="70" r="8"/> <circle class="robot-eye" cx="125" cy="70" r="25"/>
+                <circle id="right-eye-pupil" class="robot-white" cx="125" cy="70" r="8"/> <path class="robot-mouth" d="M 90 110 H 110" />
+            </g>
+        </svg>
+
+    </div>
+    
+    <script>
+        /* --- JavaScript Logic (আগের মতোই) --- */
+        
+        // ১. Element গুলো চিহ্নিত করা
+        const leftPupil = document.getElementById('left-eye-pupil');
+        const rightPupil = document.getElementById('right-eye-pupil');
+        const robotHead = document.getElementById('robot-head-group'); // এবার পুরো মাথাকে টার্গেট করা হয়েছে
+
+        // চোখের মণির জন্য সর্বোচ্চ নড়াচড়ার দূরত্ব (পিক্সেল)
+        // চোখ বড়, তাই দূরত্ব কিছুটা বেশি
+        const maxMoveDistance = 12; 
+        
+        // ২. মূল লজিক: মাউস অনুসরণ করা
+        document.addEventListener('mousemove', (event) => {
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+
+            // প্রতিটি চোখের জন্য আলাদাভাবে ঘোরানোর হিসাব
+            moveEye(leftPupil, mouseX, mouseY);
+            moveEye(rightPupil, mouseX, mouseY);
+            
+            // রোবটের মাথাও হালকা নড়ানো (Parallax Effect)
+            moveHead(mouseX, mouseY);
+        });
+
+        // চোখের মণি ঘোরানোর ফাংশন
+        function moveEye(pupil, mouseX, mouseY) {
+            // getBoundingClientRect() SVG এলিমেন্টের সঠিক অবস্থান দেয়
+            const eyeBoundingBox = pupil.getBoundingClientRect();
+            
+            // চোখের কেন্দ্রের স্থানাঙ্ক
+            const eyeCenterX = eyeBoundingBox.left + eyeBoundingBox.width / 2;
+            const eyeCenterY = eyeBoundingBox.top + eyeBoundingBox.height / 2;
+
+            // মাউস ও চোখের কেন্দ্রের মধ্যবর্তী দূরত্ব
+            const deltaX = mouseX - eyeCenterX;
+            const deltaY = mouseY - eyeCenterY;
+
+            // কোণ (angle) নির্ণয়
+            const angleInRadians = Math.atan2(deltaY, deltaX);
+
+            // নতুন x এবং y স্থানাঙ্ক গণনা
+            const newX = Math.cos(angleInRadians) * maxMoveDistance;
+            const newY = Math.sin(angleInRadians) * maxMoveDistance;
+
+            // SVG এলিমেন্টের জন্য 'transform' অ্যাট্রিবিউট ব্যবহার
+            pupil.setAttribute('transform', `translate(${newX} ${newY})`);
+        }
+
+        // রোবটের মাথাকে সামান্য ঘোরানো (Head Tilt)
+        function moveHead(mouseX, mouseY) {
+            const faceBoundingBox = robotHead.getBoundingClientRect();
+            
+            const faceCenterX = faceBoundingBox.left + faceBoundingBox.width / 2;
+            const faceCenterY = faceBoundingBox.top + faceBoundingBox.height / 2;
+
+            const deltaX = mouseX - faceCenterX;
+            const deltaY = mouseY - faceCenterY;
+            
+            // সর্বোচ্চ টিল্ট ডিগ্রি
+            const maxTilt = 8; // মাথা বড়, তাই টিল্ট সামান্য বেশি
+            
+            // মাউসের অবস্থান অনুসারে Y অক্ষ বরাবর টিল্ট
+            const tiltX = (deltaY / window.innerHeight) * (maxTilt * -2); // ইনভার্ট করা হয়েছে
+            // মাউসের অবস্থান অনুসারে X অক্ষ বরাবর টিল্ট
+            const tiltY = (deltaX / window.innerWidth) * (maxTilt * 2);
+
+            // CSS transform property ব্যবহার করে 3D রোটেশন প্রয়োগ
+            // SVG-এর জন্য 'transform' অ্যাট্রিবিউট ব্যবহার করা ভালো
+            robotHead.setAttribute('transform', `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`);
+        }
+
+    </script>  
+</body>
+</html>

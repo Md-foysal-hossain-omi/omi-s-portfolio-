@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Foysal Hossain Omi — Digital Marketer & SEO Expert | Web Developer</title>
+    <meta name="description" content="I grow traffic, leads and sales through smart SEO and high-performance websites. Hire Foysal Hossain Omi for Digital Marketing, SEO and Web Development services.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Global Reset and Variables */
+        :root {
+            --primary-black: #000000;
+            --accent-yellow: #FFD43B;
+            --light-bg: #FFF8E1;
+            --dark-bg: #0D0D0D;
+            --white-text: #FFFFFF;
+            --transition-speed: 0.3s;
+            /* Robot Colors */
+            --robot-main: #FFD43B;
+            --robot-eye-glow: #00ffea;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--primary-black);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3.5rem; }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 1.75rem; }
+
+        .white-text { color: var(--white-text); }
+        .section-title { margin-bottom: 1rem; }
+        .section-subtitle { font-size: 1.2rem; margin-bottom: 3rem; color: #555; }
+
+        /* Layout & Utility */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 5rem 0;
+            overflow: hidden; 
+            position: relative; /* Context for robot */
+        }
+        .dark-bg { background-color: var(--dark-bg); }
+        .light-bg { background-color: var(--light-bg); }
+        .text-center { text-align: center; }
+
+        /* Custom Scroll Animation Class */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity var(--transition-speed) ease-out, transform var(--transition-speed) ease-out;
+            transition-delay: 0.1s; 
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 1. Header Styles (No change) */
+        #main-header {
+            position: fixed;
+            width: 100%;
+            background-color: var(--light-bg);
+            padding: 1rem 0;
+            z-index: 1000;
+            transition: padding var(--transition-speed) ease, background-color var(--transition-speed) ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        #main-header.scrolled {
+            padding: 0.5rem 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-black);
+        }
+        #nav-links a {
+            text-decoration: none;
+            color: var(--primary-black);
+            font-weight: 600;
+            margin-left: 1.5rem;
+            padding-bottom: 0.2rem;
+            transition: color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+            position: relative;
+        }
+        #nav-links a:not(.cta-button)::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-yellow);
+            transition: width var(--transition-speed) ease-out;
+        }
+        #nav-links a:not(.cta-button):hover::after {
+            width: 100%;
+        }
+        .menu-toggle { display: none; }
+        .cta-button {
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            display: inline-block;
+            transition: all var(--transition-speed) ease-in-out;
+            border: none;
+            cursor: pointer;
+        }
+        .cta-button.small-btn {
+            background-color: var(--accent-yellow);
+            color: var(--primary-black);
+            margin-left: 1.5rem;
+        }
+        .cta-button.small-btn:hover {
+            transform: scale(1.05);
+            background-color: #ffd84f;
+        }
+        .cta-button.primary-btn {
+            background-color: var(--accent-yellow);
+            color: var(--primary-black);
+            box-shadow: 0 4px 10px rgba(255, 212, 59, 0.4);
+        }
+        .cta-button.primary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 212, 59, 0.6);
+        }
+
+        /* 2. Hero Section */
+        .hero-section {
+            padding-top: 8rem; 
+            min-height: 100vh; /* Full viewport height */
+            position: relative; /* Important for absolute positioning of robot */
+        }
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+        }
+        .hero-text-area {
+            max-width: 50%;
+            color: var(--white-text);
+            z-index: 10; /* Text on top of robot */
+        }
+        .hero-text-area h1 {
+            font-size: 4.5rem;
+            margin: 0.5rem 0;
+        }
+        .hero-text-area .greeting {
+            font-size: 1.2rem;
+            color: var(--accent-yellow);
+        }
+        .hero-text-area .subhead {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: #ccc;
+        }
+        .hero-text-area .pitch {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #aaa;
+        }
+        .hero-ctas {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .view-portfolio-link {
+            color: var(--accent-yellow);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color var(--transition-speed) ease;
+        }
+        .view-portfolio-link:hover {
+            color: #ffd84f;
+        }
+        .hero-image-placeholder {
+            width: 40%;
+            min-height: 400px;
+            /* Placeholder will be hidden for the robot */
+            display: none; 
+        }
+
+        /* --- ROBOT STYLES (Added) --- */
+        .robot-container {
+            position: absolute; /* Absolute within hero-section */
+            top: 50%;
+            right: 10%;
+            transform: translateY(-50%) rotateY(15deg);
+            z-index: 1; 
+            /* Fixed position for staying on screen while scrolling */
+            position: fixed; 
+            top: 50vh; 
+            right: 5vw; 
+            
+            /* Add some visual depth when not scrolling, otherwise it looks flat */
+            perspective: 1000px; 
+        }
+
+        #robot-face {
+            position: relative;
+            width: 220px;
+            height: 250px;
+            background: linear-gradient(145deg, var(--robot-main), #ffb700);
+            border-radius: 40px;
+            box-shadow: 0 0 30px rgba(255, 212, 59, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: float 3s ease-in-out infinite;
+            transition: transform 0.1s ease-out; /* For JS head movement */
+        }
+
+        .antenna {
+            width: 10px;
+            height: 40px;
+            background: #ffeb3b;
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+            box-shadow: 0 0 10px #fff;
+        }
+
+        .head-glow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1), transparent 70%);
+            border-radius: 40px;
+            animation: glow 2s infinite alternate;
+        }
+
+        .eyes {
+            display: flex;
+            justify-content: space-between;
+            width: 120px;
+            margin-top: 40px;
+        }
+
+        .eye {
+            width: 60px;
+            height: 60px;
+            background: #222;
+            border-radius: 50%;
+            border: 3px solid var(--robot-eye-glow);
+            box-shadow: 0 0 15px rgba(0, 255, 234, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .pupil {
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, var(--robot-eye-glow), #007aff);
+            border-radius: 50%;
+            transition: transform 0.1s ease;
+        }
+
+        .mouth {
+            width: 120px;
+            height: 20px;
+            margin-top: 30px;
+            background: linear-gradient(90deg, #ff4081, #ff1744, #ff9100);
+            border-radius: 10px;
+            animation: mouthMove 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 10px rgba(255,255,255,0.2); }
+            to { box-shadow: 0 0 25px rgba(255,255,255,0.6); }
+        }
+
+        @keyframes mouthMove {
+            from { height: 10px; }
+            to { height: 25px; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Eye blink animation - Uses ::after pseudo-element as eyelid */
+        .eye::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            /* background is the color of the head/face */
+            background: linear-gradient(145deg, var(--robot-main), #ffb700); 
+            border-radius: 50%;
+            animation: blink 5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 90%, 100% { height: 0%; } /* Open */
+            92%, 98% { height: 100%; } /* Closed */
+        }
+        /* --- END ROBOT STYLES --- */
+        
+        /* The rest of the CSS remains the same */
+        .stats-strip {
+            padding: 2.5rem 0;
+            border-top: 1px solid #f0e6c6;
+            border-bottom: 1px solid #f0e6c6;
+        }
+        .stats-grid {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+        .stat-chip {
+            padding: 0.5rem 1rem;
+            border: 1px solid #e0d0a0;
+            border-radius: 50px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.5rem;
+        }
+        .stat-chip i {
+            color: var(--primary-black);
+            font-size: 1rem;
+        }
+        .stat-chip p {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        /* 3. About Section */
+        .about-section {
+            padding-top: 6rem;
+        }
+        .about-grid {
+            display: flex;
+            gap: 4rem;
+            align-items: flex-start;
+        }
+        .about-text {
+            flex: 3;
+            max-width: 60%;
+        }
+        .about-text h2 {
+            margin-bottom: 1.5rem;
+        }
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #444;
+        }
+        .skills-list {
+            flex: 2;
+            background-color: #f9f4e6;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+        .skills-list h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-black);
+        }
+        .skill-item {
+            margin-bottom: 1rem;
+        }
+        .skill-item p {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+        .skill-bar {
+            background-color: #ddd;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .skill-bar div {
+            height: 100%;
+            background-color: var(--accent-yellow);
+            transition: width 1s ease-out;
+        }
+        .skill-item.is-visible .skill-bar div {
+            width: var(--skill-percent); 
+        }
+
+        /* 4. Services Section */
+        .services-section {
+            text-align: center;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .service-card {
+            background-color: var(--primary-black);
+            color: var(--white-text);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid var(--primary-black);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
+            transition: all var(--transition-speed) ease-in-out;
+        }
+        .service-card:hover {
+            background-color: var(--dark-bg);
+            border-color: var(--accent-yellow);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 212, 59, 0.15);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--accent-yellow);
+            margin-bottom: 1rem;
+        }
+        .service-card h3 {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .service-card p {
+            color: #aaa;
+            margin-bottom: 1rem;
+        }
+        .learn-more-link {
+            color: var(--accent-yellow);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 0.5rem;
+            transition: color var(--transition-speed) ease;
+        }
+        .learn-more-link:hover {
+            color: #ffd84f;
+        }
+
+        /* 5. Projects Section */
+        .projects-section {
+            text-align: center;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+        }
+        .project-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform var(--transition-speed) ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        .project-placeholder {
+            height: 200px;
+            background-color: #e0d0a0;
+        }
+        .project-info {
+            padding: 1.5rem;
+            text-align: left;
+        }
+        .project-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.2rem;
+        }
+        .project-info .industry {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .project-info .result-metric {
+            font-size: 1rem;
+            margin: 1rem 0;
+        }
+        .project-info .result-metric strong {
+            color: var(--primary-black);
+        }
+        .view-project-link {
+            color: var(--primary-black);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color var(--transition-speed) ease;
+        }
+        .view-project-link:hover {
+            color: var(--accent-yellow);
+        }
+        .full-portfolio-cta {
+            margin-top: 1rem;
+        }
+
+        /* 7. Contact Section */
+        .contact-section {
+            padding: 5rem 0;
+        }
+        .contact-grid {
+            display: flex;
+            gap: 4rem;
+            align-items: flex-start;
+        }
+        .contact-form-area {
+            flex: 3;
+        }
+        .contact-form-area h2 {
+            margin-bottom: 1rem;
+        }
+        .contact-form-area p {
+            margin-bottom: 2rem;
+        }
+        #contact-form {
+            display: grid;
+            gap: 1rem;
+        }
+        #contact-form input,
+        #contact-form textarea,
+        #contact-form select {
+            padding: 0.8rem;
+            border: 1px solid #333;
+            background-color: #1a1a1a;
+            color: var(--white-text);
+            border-radius: 6px;
+            font-family: inherit;
+            transition: border-color var(--transition-speed) ease;
+        }
+        #contact-form input:focus,
+        #contact-form textarea:focus,
+        #contact-form select:focus {
+            outline: none;
+            border-color: var(--accent-yellow);
+        }
+        #contact-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        #contact-form select option {
+            background-color: #1a1a1a;
+        }
+        .contact-details {
+            flex: 2;
+            padding: 2rem;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+        }
+        .contact-details h3 {
+            margin-bottom: 1.5rem;
+            color: var(--accent-yellow);
+        }
+        .contact-details p {
+            margin-bottom: 1rem;
+            color: #ccc;
+            font-size: 1rem;
+        }
+        .contact-details p i {
+            color: var(--accent-yellow);
+            margin-right: 0.5rem;
+        }
+        .contact-details a {
+            color: var(--white-text);
+            text-decoration: none;
+            transition: color var(--transition-speed) ease;
+        }
+        .contact-details a:hover {
+            color: var(--accent-yellow);
+        }
+        .social-heading {
+            margin-top: 2rem;
+        }
+        .social-icons a {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: #aaa;
+        }
+        .social-icons a:hover {
+            color: var(--accent-yellow);
+        }
+
+        /* 8. Footer */
+        .main-footer {
+            padding: 1.5rem 0;
+            border-top: 1px solid #e0d0a0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-links a {
+            color: #555;
+            text-decoration: none;
+            margin-left: 1rem;
+            transition: color var(--transition-speed) ease;
+        }
+        .footer-links a:hover {
+            color: var(--primary-black);
+        }
+
+        /* WhatsApp Widget */
+        .whatsapp-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: transform var(--transition-speed) ease;
+        }
+        .whatsapp-widget:hover {
+            transform: scale(1.1);
+        }
+
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 4rem;
+            }
+            .hero-text-area, .hero-image-placeholder {
+                max-width: 100%;
+                width: 100%;
+            }
+            .hero-text-area { order: 2; }
+            .hero-image-placeholder { order: 1; min-height: 300px; margin-bottom: 2rem; }
+            .hero-text-area h1 { font-size: 3rem; }
+            .hero-text-area .subhead { font-size: 1.2rem; }
+            .hero-ctas { justify-content: center; }
+
+            /* Hide Robot on small screens to save space and avoid distraction */
+            .robot-container {
+                display: none; 
+            }
+
+            .about-grid, .contact-grid {
+                flex-direction: column;
+                gap: 3rem;
+            }
+            .about-text { max-width: 100%; }
+            
+            .stats-grid { justify-content: center; }
+            .stat-chip { margin: 0.5rem 0.8rem; }
+        }
+
+        @media (max-width: 768px) {
+            h2 { font-size: 2rem; }
+            section { padding: 4rem 0; }
+
+            #nav-links { display: none; } 
+            .menu-toggle {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: var(--primary-black);
+                cursor: pointer;
+            }
+            .footer-content { flex-direction: column; text-align: center; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="container nav-content">
+            <div class="logo">Omi.</div>
+            <nav id="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact" class="cta-button small-btn">HIRE ME</a>
+            </nav>
+            <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </header>
+
+    <div class="robot-container">
+        <div id="robot-face">
+            <div class="antenna"></div>
+            <div class="head-glow"></div>
+            <div class="eyes">
+                <div class="eye">
+                    <div id="left-eye-pupil" class="pupil"></div>
+                </div>
+                <div class="eye">
+                    <div id="right-eye-pupil" class="pupil"></div>
+                </div>
+            </div>
+            <div class="mouth"></div>
+        </div>
+    </div>
+    <section id="home" class="hero-section dark-bg">
+        <div class="container hero-content">
+            <div class="hero-text-area animate-on-scroll">
+                <p class="greeting">Hi, I’m</p>
+                <h1>Md. Foysal Hossain Omi</h1>
+                <p class="subhead">Digital Marketer · SEO Expert · Web Developer</p>
+                <p class="pitch">I grow traffic, leads and sales through smart SEO and high-performance websites.</p>
+                <div class="hero-ctas">
+                    <a href="#contact" class="cta-button primary-btn">Hire Me</a>
+                    <a href="#projects" class="view-portfolio-link">View Portfolio <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="hero-image-placeholder"></div>
+        </div>
+    </section>
+
+    <section id="stats" class="stats-strip light-bg">
+        <div class="container stats-grid animate-on-scroll">
+            <div class="stat-chip">
+                <i class="fa-solid fa-chart-line"></i>
+                <p>+250% Organic Traffic</p>
+            </div>
+            <div class="stat-chip">
+                <i class="fa-solid fa-star"></i>
+                <p>50+ Clients</p>
+            </div>
+            <div class="stat-chip">
+                <i class="fa-solid fa-globe"></i>
+                <p>100+ Websites Built</p>
+            </div>
+            <div class="stat-chip">
+                <i class="fa-solid fa-briefcase"></i>
+                <p>5 Years Experience</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section light-bg">
+        <div class="container about-grid">
+            <div class="about-text animate-on-scroll">
+                <h2>About Me & My Approach</h2>
+                <p>Hello! I am Foysal Hossain Omi, an experienced Full-Stack SEO expert dedicated to driving measurable growth for businesses. My approach is to combine **data-driven SEO strategy** with **high-performance web development**.</p>
+                <p>I don't just aim for page one; I build 'answer-worthy' and fast websites optimized for the modern AI and voice search era. My confidence comes from delivering real results and a commitment to transparent, helpful client relations.</p>
+                <p>Let's build a robust online presence that scales with your business goals.</p>
+                <a href="#" class="cta-button primary-btn download-cv">Download CV</a>
+            </div>
+            <div class="skills-list animate-on-scroll">
+                <h3>Core Competencies</h3>
+                <div class="skill-item" style="--skill-percent: 95%;">
+                    <p>Technical SEO</p>
+                    <div class="skill-bar"><div></div></div>
+                </div>
+                <div class="skill-item" style="--skill-percent: 90%;">
+                    <p>Content Strategy & AEO</p>
+                    <div class="skill-bar"><div></div></div>
+                </div>
+                <div class="skill-item" style="--skill-percent: 85%;">
+                    <p>WordPress & Speed Optimization</p>
+                    <div class="skill-bar"><div></div></div>
+                </div>
+                <div class="skill-item" style="--skill-percent: 80%;">
+                    <p>Google & Meta Ads</p>
+                    <div class="skill-bar"><div></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services-section dark-bg">
+        <div class="container">
+            <h2 class="section-title white-text animate-on-scroll">My Growth Services</h2>
+            <p class="section-subtitle white-text animate-on-scroll">Strategy, performance, and development all under one roof.</p>
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    <h3>SEO Optimization</h3>
+                    <p>On-page, Technical, Off-page, and Local SEO strategies to dominate SERPs.</p>
+                    <a href="#" class="learn-more-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    <h3>Paid Ads Management</h3>
+                    <p>High-converting Google Ads and Meta Ads strategy & campaign management.</p>
+                    <a href="#" class="learn-more-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <i class="fa-solid fa-code"></i>
+                    <h3>Website Development</h3>
+                    <p>Fast, responsive WordPress sites, landing pages, and core web vital optimization.</p>
+                    <a href="#" class="learn-more-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <i class="fa-solid fa-pen-nib"></i>
+                    <h3>Content & CRO</h3>
+                    <p>Keyword research, content plans, and conversion funnel optimization (CRO).</p>
+                    <a href="#" class="learn-more-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section light-bg">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Featured Case Studies</h2>
+            <p class="section-subtitle animate-on-scroll">Proof of performance: See the metrics I deliver.</p>
+            <div class="projects-grid">
+                <div class="project-card animate-on-scroll">
+                    <div class="project-placeholder"></div>
+                    <div class="project-info">
+                        <h3>E-Commerce SEO Overhaul</h3>
+                        <p class="industry">Industry: Retail</p>
+                        <p class="result-metric">Organic sessions **+320%** in 4 months</p>
+                        <a href="#" class="view-project-link">View Detailed Case Study</a>
+                    </div>
+                </div>
+                <div class="project-card animate-on-scroll">
+                    <div class="project-placeholder"></div>
+                    <div class="project-info">
+                        <h3>Local Service Lead Generation</h3>
+                        <p class="industry">Industry: Service</p>
+                        <p class="result-metric">Local keyword rankings: **15 terms in Top 10**</p>
+                        <a href="#" class="view-project-link">View Detailed Case Study</a>
+                    </div>
+                </div>
+                <div class="project-card animate-on-scroll">
+                    <div class="project-placeholder"></div>
+                    <div class="project-info">
+                        <h3>High-Speed Landing Page Dev</h3>
+                        <p class="industry">Industry: SaaS</p>
+                        <p class="result-metric">LCP score **under 2.5s**, increased conversions.</p>
+                        <a href="#" class="view-project-link">View Detailed Case Study</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center animate-on-scroll">
+                <a href="#" class="cta-button primary-btn full-portfolio-cta">View All Projects</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact-section dark-bg">
+        <div class="container contact-grid">
+            <div class="contact-form-area animate-on-scroll">
+                <h2 class="white-text">Ready to Grow Your Business?</h2>
+                <p class="white-text">Fill out the form for a free 15-minute consultation. Let's discuss your goals.</p>
+                <form id="contact-form">
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="text" name="company" placeholder="Company (Optional)">
+                    <select name="service" required>
+                        <option value="">Interested Service...</option>
+                        <option value="seo">SEO Strategy</option>
+                        <option value="ads">Paid Ads Management</option>
+                        <option value="dev">Web Development</option>
+                        <option value="other">Other Digital Marketing</option>
+                    </select>
+                    <textarea name="message" placeholder="Short Message" required></textarea>
+                    <button type="submit" class="cta-button primary-btn">Send Message</button>
+                </form>
+            </div>
+            <div class="contact-details animate-on-scroll">
+                <h3 class="white-text">Connect Directly</h3>
+                <p><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:your_email@example.com">your_email@example.com</a></p>
+                <p><i class="fa-brands fa-whatsapp"></i> WhatsApp: <a href="tel:+880xxxxxxxxx">+880 XXXXXXXXXX</a></p>
+                <p><i class="fa-solid fa-calendar-alt"></i> Book a Meeting: <a href="your-calendly-link" target="_blank">Schedule Now</a></p>
+                
+                <h3 class="white-text social-heading">Find Me Online</h3>
+                <div class="social-icons">
+                    <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" target="_blank"><i class="fa-brands fa-google"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer light-bg">
+        <div class="container footer-content">
+            <p>&copy; <span id="current-year"></span> Md Foysal Hossain Omi. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Sitemap</a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/your_whatsapp_number" class="whatsapp-widget" target="_blank" title="Contact via WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- 1. Sticky Header & Scroll Effect ---
+            const header = document.getElementById('main-header');
+            
+            function handleScroll() {
+                // Toggle 'scrolled' class on header
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            }
+
+            window.addEventListener('scroll', handleScroll);
+            handleScroll(); // Initial check on load
+
+            // --- 2. Robot Eye Tracking & Head Tilt ---
+            const leftPupil = document.getElementById('left-eye-pupil');
+            const rightPupil = document.getElementById('right-eye-pupil');
+            const robotFace = document.getElementById('robot-face');
+
+            document.addEventListener('mousemove', (event) => {
+                const mouseX = event.clientX;
+                const mouseY = event.clientY;
+
+                // Eye tracking logic
+                if (leftPupil && rightPupil) {
+                    moveEye(leftPupil, mouseX, mouseY);
+                    moveEye(rightPupil, mouseX, mouseY);
+                }
+
+                // Head slight tilt (3D effect)
+                if (robotFace) {
+                    const centerScreenX = window.innerWidth / 2;
+                    const centerScreenY = window.innerHeight / 2;
+                    
+                    // Normalize mouse position to [-1, 1] relative to center
+                    const normalizedX = (mouseX - centerScreenX) / (window.innerWidth / 2);
+                    const normalizedY = (mouseY - centerScreenY) / (window.innerHeight / 2);
+
+                    // Map to rotation angles (e.g., max 10 degrees)
+                    const maxTilt = 10;
+                    const rotateY = -normalizedX * maxTilt; // Left/Right mouse maps to Y-rotation
+                    const rotateX = normalizedY * maxTilt; // Up/Down mouse maps to X-rotation
+
+                    // Add float animation back, and apply rotation
+                    robotFace.style.transform = `
+                        translateY(var(--float-offset, 0)) 
+                        rotateX(${rotateX}deg) 
+                        rotateY(${rotateY}deg)
+                    `;
+                }
+            });
+
+            function moveEye(pupil, mouseX, mouseY) {
+                const eyeBox = pupil.parentElement.getBoundingClientRect();
+                const eyeCenterX = eyeBox.left + eyeBox.width / 2;
+                const eyeCenterY = eyeBox.top + eyeBox.height / 2;
+
+                const deltaX = mouseX - eyeCenterX;
+                const deltaY = mouseY - eyeCenterY;
+
+                const angle = Math.atan2(deltaY, deltaX);
+                const moveDistance = 10;
+
+                const newX = Math.cos(angle) * moveDistance;
+                const newY = Math.sin(angle) * moveDistance;
+
+                pupil.style.transform = `translate(${newX}px, ${newY}px)`;
+            }
+
+            // Set up float animation offset variable for JS
+            const floatKeyframes = [
+                { offset: 0.0, transform: 'translateY(0) rotateX(0deg) rotateY(0deg)' },
+                { offset: 0.5, transform: 'translateY(-10px) rotateX(0deg) rotateY(0deg)' },
+                { offset: 1.0, transform: 'translateY(0) rotateX(0deg) rotateY(0deg)' }
+            ];
+
+            // Re-apply the float animation to the variable
+            setInterval(() => {
+                const time = (Date.now() % 3000) / 3000; // 3s loop
+                let offset;
+                if (time < 0.5) {
+                    offset = -10 * (Math.sin(time * 2 * Math.PI) / (2 * Math.PI)); // Custom float ease
+                    offset = 10 * Math.sin(time * 2 * Math.PI);
+                }
+                // Simpler: Just rely on CSS for the 'float' animation and let JS handle the tilt
+                // robotFace.style.setProperty('--float-offset', `${10 * Math.sin(time * Math.PI * 2)}px`); 
+            }, 100); 
+
+            // --- 3. Element Visibility (Fade-in on Scroll) ---
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    } 
+                });
+            }, {
+                rootMargin: '0px',
+                threshold: 0.1 
+            });
+
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+
+            // --- 4. Skill Bar Animation (Triggered when visible) ---
+            const skillItems = document.querySelectorAll('.skill-item');
+            
+            const skillObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, { threshold: 0.5 }); 
+
+            skillItems.forEach(item => {
+                skillObserver.observe(item);
+            });
+
+            // --- 5. Smooth Scrolling for Navigation Links ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    if (this.getAttribute('href').length > 1) {
+                        e.preventDefault();
+                        
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetElement = document.getElementById(targetId);
+
+                        if (targetElement) {
+                            const offsetTop = targetElement.offsetTop;
+                            const headerHeight = header.offsetHeight; 
+                            
+                            window.scrollTo({
+                                top: offsetTop - headerHeight - 20, 
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // --- 6. Dynamic Footer Year ---
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // --- 7. Form Submission Placeholder ---
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message, Omi will get back to you soon!'); 
+                    this.reset();
+                });
+            }
+
+            // --- 8. Mobile Menu Toggle ---
+            const menuToggle = document.querySelector('.menu-toggle');
+            if (menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                    alert('Mobile Menu Toggle clicked! Add your responsive navigation logic here.');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
